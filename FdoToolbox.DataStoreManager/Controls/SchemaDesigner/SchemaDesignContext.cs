@@ -686,5 +686,37 @@ namespace FdoToolbox.DataStoreManager.Controls.SchemaDesigner
             }
             return names.ToArray();
         }
+
+        internal void RemoveClassesWithoutGeometries()
+        {
+            List<ClassDefinition> toDelete = new List<ClassDefinition>();
+
+            for (int i = 0; i < _schemas.Count; i++)
+            {
+                var schema = _schemas[i];
+                for (int j = 0; j < schema.Classes.Count; j++)
+                {
+                    ClassDefinition klass = schema.Classes[j];
+                    bool hasGeometry = false;
+                    for (int k = 0; k < klass.Properties.Count; k++)
+                    {
+                        if (klass.Properties[k].PropertyType == PropertyType.PropertyType_GeometricProperty)
+                        {
+                            hasGeometry = true;
+                            break;
+                        }
+                    }
+                    if (!hasGeometry)
+                    {
+                        toDelete.Add(klass);
+                    }
+                }
+            }
+
+            foreach (ClassDefinition klass in toDelete)
+            {
+                DeleteClass(klass);
+            }
+        }
     }
 }

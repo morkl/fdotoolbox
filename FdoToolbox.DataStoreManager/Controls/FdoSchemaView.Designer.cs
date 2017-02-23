@@ -40,8 +40,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TAB_LOGICAL = new System.Windows.Forms.TabPage();
             this.TAB_PHYSICAL = new System.Windows.Forms.TabPage();
+            this.btnRemoveClassesWithoutGeometries = new System.Windows.Forms.ToolStripButton();
             this.contentPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -52,16 +54,18 @@
             // 
             this.contentPanel.Controls.Add(this.splitContainer1);
             this.contentPanel.Controls.Add(this.toolStrip1);
+            this.contentPanel.Size = new System.Drawing.Size(483, 339);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddSchema,
             this.btnFix,
-            this.btnUndo});
+            this.btnUndo,
+            this.btnRemoveClassesWithoutGeometries});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(449, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(483, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -107,8 +111,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(449, 267);
-            this.splitContainer1.SplitterDistance = 179;
+            this.splitContainer1.Size = new System.Drawing.Size(483, 314);
+            this.splitContainer1.SplitterDistance = 213;
             this.splitContainer1.TabIndex = 5;
             // 
             // schemaTree
@@ -119,7 +123,7 @@
             this.schemaTree.Location = new System.Drawing.Point(0, 0);
             this.schemaTree.Name = "schemaTree";
             this.schemaTree.SelectedImageIndex = 0;
-            this.schemaTree.Size = new System.Drawing.Size(179, 267);
+            this.schemaTree.Size = new System.Drawing.Size(213, 314);
             this.schemaTree.TabIndex = 4;
             this.schemaTree.KeyUp += new System.Windows.Forms.KeyEventHandler(this.schemaTree_KeyUp);
             // 
@@ -144,7 +148,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(266, 267);
+            this.tabControl1.Size = new System.Drawing.Size(266, 314);
             this.tabControl1.TabIndex = 5;
             // 
             // TAB_LOGICAL
@@ -152,7 +156,7 @@
             this.TAB_LOGICAL.Location = new System.Drawing.Point(4, 22);
             this.TAB_LOGICAL.Name = "TAB_LOGICAL";
             this.TAB_LOGICAL.Padding = new System.Windows.Forms.Padding(3);
-            this.TAB_LOGICAL.Size = new System.Drawing.Size(258, 241);
+            this.TAB_LOGICAL.Size = new System.Drawing.Size(258, 288);
             this.TAB_LOGICAL.TabIndex = 0;
             this.TAB_LOGICAL.Text = "Logical Property";
             this.TAB_LOGICAL.UseVisualStyleBackColor = true;
@@ -167,18 +171,29 @@
             this.TAB_PHYSICAL.Text = "Physical Mapping";
             this.TAB_PHYSICAL.UseVisualStyleBackColor = true;
             // 
+            // btnRemoveClassesWithoutGeometries
+            // 
+            this.btnRemoveClassesWithoutGeometries.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveClassesWithoutGeometries.Image")));
+            this.btnRemoveClassesWithoutGeometries.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemoveClassesWithoutGeometries.Name = "btnRemoveClassesWithoutGeometries";
+            this.btnRemoveClassesWithoutGeometries.Size = new System.Drawing.Size(133, 22);
+            this.btnRemoveClassesWithoutGeometries.Text = "Remove non-spatial";
+            this.btnRemoveClassesWithoutGeometries.Click += new System.EventHandler(this.btnRemoveClassesWithoutGeometries_Click);
+            // 
             // FdoSchemaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.HeaderText = "Feature Schemas";
             this.Name = "FdoSchemaView";
+            this.Size = new System.Drawing.Size(483, 366);
             this.contentPanel.ResumeLayout(false);
             this.contentPanel.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -197,5 +212,6 @@
         private System.Windows.Forms.ImageList imgTree;
         private System.Windows.Forms.ToolStripButton btnAddSchema;
         private System.Windows.Forms.ToolStripButton btnUndo;
+        private System.Windows.Forms.ToolStripButton btnRemoveClassesWithoutGeometries;
     }
 }

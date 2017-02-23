@@ -766,5 +766,10 @@ namespace FdoToolbox.DataStoreManager.Controls
                 }
             }
         }
+
+        private void btnRemoveClassesWithoutGeometries_Click(object sender, EventArgs e)
+        {
+            _context.RemoveClassesWithoutGeometries();
+        }
     }
 }
