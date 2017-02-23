@@ -1041,8 +1041,16 @@ namespace FdoToolbox.Core.Feature
                 {
                     while (reader.ReadNext())
                     {
-                        DataStoreInfo dinfo = new DataStoreInfo(reader);
-                        stores.Add(dinfo);
+                        try
+                        {
+                            DataStoreInfo dinfo = new DataStoreInfo(reader);
+                            stores.Add(dinfo);
+                        }
+                        catch (OSGeo.FDO.Common.Exception)
+                        {
+                            //GetIsFdoEnabled fails for SQL Server when the used credentials don't have access to a the database.
+                            //Silently catching the exception allows us to set up connections using credentials with limited rights.
+                        }
                     }
                 }
             }
